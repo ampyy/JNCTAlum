@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %} JNCTAlumni | Verify {% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="w-75 shadow-lg mb-5 bg-body rounded border-end border-3 border-danger mx-auto" style="margin-top:44px;">
+    <h1 class="display-6 text-danger">Verify Yourself</h1>
+    <p class="text-danger"><em>Locate Yourself as the batch member</em></p>
+    <hr>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Enrollment</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="enroll" placeholder="0131--------">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput2" class="form-label">Number</label>
+            <input type="number" class="form-control" id="exampleFormControlInput2" name="number" placeholder="Enter your number">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-danger">Verify</button>
+    </form>
+</div>
+{% endblock %}

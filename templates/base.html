@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+
+    <!-- Bootstrap CSS -->
+    <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" rel="stylesheet">
+    <!-- Boxicons CSS -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- google-font -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <!-- favicon -->
+    <link href="https://i.postimg.cc/Jn64Nrtw/circle-cropped.png" rel="shortcut icon"/>
+    <link href="https://i.postimg.cc/Jn64Nrtw/circle-cropped.png" rel="apple-touch-icon">
+    <title>{% block title %} {% endblock %}</title>
+    {% load static %}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+    <script>
+
+        function openChatBox(){
+  document.getElementById("chatbox-card").style.display = "block";
+  document.getElementById("open-chatbox").style.display = "none";
+  document.getElementById("close-chatbox").style.display = "block";
+}
+
+function closeChatBox(){
+  document.getElementById("chatbox-card").style.display = "none";
+  document.getElementById("open-chatbox").style.display = "block";
+  document.getElementById("close-chatbox").style.display = "none";
+}
+
+
+    </script>
+</head>
+<body style="background-color: #F2F4F8;">
+
+
+<div class="chatbox">
+    <div class="card chatbox-card custom-shadow-three" id="chatbox-card" style="width: 18rem;">
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <input class="form-control" id="exampleFormControlInput1" placeholder="Fulllname" type="email">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" id="exampleFormControlInput1" placeholder="Enrollment Number"
+                           type="text">
+                </div>
+                <div class="form-group">
+            <textarea class="form-control" id="exampleFormControlTextarea1"
+                      placeholder="Type your complains or questions here"
+                      rows="3"></textarea>
+                </div>
+            </form>
+            <a class="btn" href="#" style="color: white;" type="submit">Sign Up</a>
+        </div>
+    </div>
+    <a href="#" id="open-chatbox" onclick="openChatBox()" style="display: block;">
+        <div class="chatbutton custom-shadow-two" onclick="chatBox()">
+            <i class='bx bxs-chat'></i>
+        </div>
+    </a>
+    <a href="#" id="close-chatbox" onclick="closeChatBox()" style="display: none;">
+        <div class="chatbutton custom-shadow-two" onclick="chatBox()">
+            <i class='bx bxs-chat'></i>
+        </div>
+    </a>
+</div>
+
+
+<div class="navigation sticky-top custom-shadow-one">
+    <!-- As a link -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: white;">
+        <a class="navbar-brand" href="{% url 'home' %}"><img alt=""
+                                                             src="https://i.postimg.cc/Jn64Nrtw/circle-cropped.png">
+            <span class="nav-span-one">JNCT</span> <span class="nav-span-two">Alumnus</span></a>
+
+        <div class="dropdown">
+            <button class="dropbtn"><i class='bx bx-menu'></i></button>
+            <div class="dropdown-content">
+                {% if user.is_authenticated %}
+
+                <a href="{% url 'home' %}">Home <img src="https://img.icons8.com/flat-round/25/000000/home--v1.png"/></a>
+                <a href="{% url 'verify_update' %}">Verify Me <img src="https://img.icons8.com/ios/25/000000/approval.png"/></a>
+                <a href="{% url 'myprofile' %}">My Profile <img src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/25/000000/external-user-interface-kiranshastry-lineal-color-kiranshastry-1.png"/></a>
+                <a href="{% url 'password_change' %}">Change Password<img src="https://img.icons8.com/ios/22/000000/password--v1.png"/></a>
+                <a href="{% url 'logout' %}"> Logout <img src="https://img.icons8.com/office/25/000000/shutdown.png"/></a>
+                <a href="{% url 'notes' %}"> Notes <img src="https://img.icons8.com/color/25/000000/notepad.png"/></a>
+                {% else %}
+                <a href="{% url 'signup' %}">Sign Up <img src="https://img.icons8.com/pastel-glyph/25/000000/add-user-male--v2.png"/></a>
+                <a href="{% url 'login' %}">Login <img src="https://img.icons8.com/color/25/000000/enter-2.png"/></a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="alert alert-primary" role="alert">
+     <b>Must Read</b> : To view your profile in your particular batch
+      <a href="{% url 'verify_update' %}">Verify yourself <img src="https://img.icons8.com/ios/25/000000/approval.png"/></a>
+     and update the basic data (name, age, branch, batch) on  <a href="{% url 'myprofile' %}">My Profile <img src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/25/000000/external-user-interface-kiranshastry-lineal-color-kiranshastry-1.png"/></a>
+               Section!
+    </div>
+
+{% block content %}
+
+{% endblock %}
+</body>
+</html>

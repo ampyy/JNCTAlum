@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %} JNCT Alumni :: Home{% endblock %}
+{% load static %}
+{% block content %}
+
+<div class="cards-container batch-cards-container">
+
+    {% for b in batch %}
+    <div class="card custom-shadow-two" style="width: 18rem;">
+        <div class="card-body">
+            <span class="card-title">Batch of</span>
+            <p class="card-text">{{ b.batch_name }}</p>
+            <a class="btn" href="{{ b.get_absolute_url }}" style="color: white;">Visit Batch</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

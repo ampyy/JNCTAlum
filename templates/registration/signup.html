@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %} JNCTAlumni | Register {% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<div class="w-75 shadow-lg p-3 mb-5 bg-body rounded border-end border-3 border-danger mx-auto" style="margin-top:22px;">
+    <h1 class="display-6 text-danger">Register JNCTian</h1>
+    <p class="text-danger"><em>Mark Your identity to your seniors and juniors</em></p>
+    <hr>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form|crispy }}
+        Already have account <a href="{% url 'login' %}">Login <img src="https://img.icons8.com/color/25/000000/enter-2.png"/></a>
+        <button type="submit" class="btn btn-danger">Register</button>
+    </form>
+</div>
+{% endblock %}

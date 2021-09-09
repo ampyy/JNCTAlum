@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %} JNCTAlumni - Delete Thought{% endblock %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<div class="container row">
+
+<div class="p-5 feed_post col-md-8">
+
+    <h1 class="display-6 text-danger">Thought</h1>
+    <div class="alert alert-primary" role="alert">
+                        {{ thoughtsbyuser.thought }}
+                    </div>
+
+    <form class="needs-validation responsive" enctype="multipart/form-data" method="post" novalidate>
+        {% csrf_token %}
+<p class="text-danger"><strong>Sure? Want to delete?</strong></p>
+        <br>
+        <button class="btn btn-danger" type="submit">Delete</button>
+    </form>
+</div>
+</div>
+
+{% endblock %}

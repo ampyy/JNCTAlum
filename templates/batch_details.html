@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %} JNCT Alumni :: {{ batch }} {% endblock %}
+{% load static %}
+{% block content %}
+<link href="{% static 'css/batch_detail.css' %}" rel="stylesheet" type="text/css">
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Students of Batch</a></li>
+        <li aria-current="page" class="breadcrumb-item ac2tive">2019 - 2023</li>
+    </ol>
+</nav>
+
+
+<div class="cards-container">
+    {% for u in user_info %}
+    {% if u.verified %}
+    <div class="person-card custom-shadow-two">
+        <div class="person-card-container">
+            <div class="person-card-top">
+                <div class="person-card-top-left">
+                    <div class="person-image">
+                        {% if u.profile_pic %}
+                        <img alt="" loading="lazy" src="{{ u.profile_pic.url }}" style="width:120px;height:132px;">
+                        {% else %}
+                        <img alt="" loading="lazy" src="{% static 'images/user.png' %}" style="width:120px;height:132px;">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="person-card-top-right">
+                    <div class="person-name" id="id-person-name">
+                        {% if u.user == user.username %}
+                        <a class="text-decoration-none text-info"
+                           href="{% url 'myprofile' %}">
+                            <em>@{{ u.user }}</em></a>
+                        {% else %}
+                        <a class="text-decoration-none text-info"
+                           href="{{ u.get_absolute_url }}">
+                            <em>@{{ u.user }}</em></a>
+                        {% endif %}
+                    </div>
+                    <div class="person-age-branch">
+                        <span class="age">
+                            {% if u.branch %}
+                            {{ u.branch }}
+                            {% endif %}
+                        </span><span class="branch">Engineer</span>
+                    </div>
+                    <div class="person-discription">
+                        {% if u.name %}
+                        <em class="text-danger">Called by : </em> <span>{{ u.name }}</span>
+                        {% endif %}
+                        <br>
+                        <em class="text-danger">Age : </em>
+                        {% if u.age %}
+                        {{ u.age }}
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+            <div class="person-card-bottom">
+                {% if u.user == user.username %}
+                <a class="btn" href="{% url 'myprofile' %}" style="color: white;" type="submit">Know More</a>
+                {% else %}
+                <a class="btn" href="{{ u.get_absolute_url }}" style="color: white;" type="submit">Know More</a>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+    {% endfor %}
+</div>
+
+
+{% endblock %}

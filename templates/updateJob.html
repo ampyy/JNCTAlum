@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %} JNCTAlumni | Update Job {% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="w-75 shadow-lg mb-5 bg-body rounded border-end border-3 border-danger mx-auto" style="margin-top:44px;">
+    <h1 class="display-6 text-danger">Update a Internship/Job</h1>
+    <p class="text-danger"><em>Tell others about your accomplishment!</em></p>
+    <hr>
+    <form method="post" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        {{ form|crispy }}
+        <br>
+        <button type="submit" class="btn btn-danger">Update</button>
+    </form>
+</div>
+{% endblock %}

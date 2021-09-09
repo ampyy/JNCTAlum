@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %} miniVLOGS - Details{% endblock %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+<div class="p-4 w-75 m-2">
+    <h1 class="display-6 text-primary">View Mode</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <br>
+        <a class="btn btn-primary" href="#">Back</a>
+    </form>
+</div>
+
+{% endblock %}

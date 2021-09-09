@@ -1,0 +1,340 @@
+/* ------------------------------------------- */
+/* Custom Styling */
+/* ------------------------------------------- */
+.custom-shadow-one {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+}
+.custom-shadow-two {
+  box-shadow: rgb(17 17 26 / 10%) 0px 8px 24px,
+    rgb(17 17 26 / 10%) 0px 16px 56px, rgb(17 17 26 / 10%) 0px 24px 80px;
+}
+.custom-shadow-three {
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+/* ------------------------------------------- */
+/* Chatbox */
+/* ------------------------------------------- */
+.chatbox {
+  position: fixed;
+  z-index: 999999;
+  bottom: 1rem;
+  right: 1rem;
+}
+.chatbutton {
+  margin: 10px;
+  text-align: center;
+  padding: 7px 14px;
+  font-size: 25px;
+  border-radius: 50px;
+  color: white;
+  background-color: #C57270;
+}
+.chatbutton:hover {
+  background-color: #fc4a4a;
+}
+#chatbox-card{
+  display: none;
+}
+.chatbutton:hover #chatbox-card{
+  display: block;
+}
+.form-group textarea {
+  width: 100%;
+  height: 8rem;
+}
+/* ------------------------------------------- */
+/* Navigation */
+/* ------------------------------------------- */
+.navigation {
+  animation: slideInDown;
+  animation-duration: 2s;
+}
+.navbar {
+  justify-content: space-around;
+  background-color: #f2f4f8;
+}
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  width: 50px;
+  font-size: 25px;
+}
+.navbar-brand img {
+  width: 100%;
+}
+.nav-span-one {
+  font-weight: 700;
+  color: #b94e4c;
+  margin: 0px 8px;
+}
+.nav-span-two {
+  font-family: "Satisfy", cursive;
+  font-weight: 500;
+}
+
+/* dropdown */
+
+.dropbtn {
+  border-radius: 6px;
+  background-color: #b94e4cc9;
+  color: white;
+  padding: 1px 9px;
+  font-size: 25px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  right: 0;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 11rem;
+  box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
+  z-index: 1;
+  text-align: center;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(255, 0, 0, 0.363);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: rgba(255, 0, 0, 0.699);
+}
+
+@media (max-width: 650px) {
+  .navbar {
+    justify-content: space-between;
+  }
+}
+.breadcrumb-item {
+  font-size: 18px;
+  font-weight: bold;
+}
+.breadcrumb-item a {
+  color: #b94e4c;
+}
+/* ------------------------------------------- */
+/* LOGIN AND SIGNUP */
+/* ------------------------------------------- */
+
+.login-signup-container {
+  width: 100%;
+}
+.login-container,
+.signin-container {
+  background-color: white;
+  width: 25rem;
+  margin: auto;
+  margin-top: 4rem;
+  padding: 30px 20px;
+  font-weight: 700;
+  font-size: 17px;
+  border-radius: 12px;
+}
+.btn {
+  border-radius: 12px;
+  width: 100%;
+  background-color: #fd4b4b;
+  border: 2px solid #fd4b4b;
+  margin-top: 10px;
+}
+.btn:hover {
+  width: 100%;
+  background-color: #fd4b4b79;
+  border: 2px solid #fd4b4b;
+}
+.transver {
+  text-align: center;
+  width: 25rem;
+  margin: 1rem auto;
+  padding: 30px 20px;
+}
+@media (max-width: 432px) {
+  .login-container,
+  .signin-container {
+    width: 90%;
+  }
+  .transver {
+    width: 90%;
+  }
+}
+
+/* POP UP */
+
+.fullpage-popup {
+  text-align: center;
+  z-index: 99999;
+  background-color: #000000c2;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  display: flex;
+}
+.jumbotron {
+  width: 39rem;
+  border-radius: 12px;
+  /* height: 25rem; */
+  margin: AUTO;
+}
+.close-div {
+  width: 5rem;
+  /* height: 5rem; */
+  position: absolute;
+  font-size: 3rem;
+  color: white;
+  background-color: #b94e4c;
+}
+.close-div:hover {
+  background-color: #f2f4f8;
+  color: #b94e56;
+}
+@media (max-width: 642px) {
+  .jumbotron {
+    width: 90%;
+  }
+}
+
+/* ------------------------------------------- */
+/* Cards */
+/* ------------------------------------------- */
+.cards-container {
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+  flex-wrap: wrap;
+}
+
+/* BATCHES CARDS */
+
+.card {
+  border-radius: 12px;
+  margin: 1rem;
+}
+.card-body {
+  text-align: center;
+}
+.card-title {
+  font-family: "Satisfy", cursive;
+  margin-bottom: 0.75rem;
+  font-size: 20px;
+  font-weight: 400;
+}
+.card-text {
+  font-size: 35px;
+  font-weight: 700;
+  margin-bottom: 0px;
+}
+.batch-cards-container {
+  width: 85%;
+  margin: auto;
+}
+
+/* PERSON CARDS */
+
+.person-card {
+  box-shadow: rgb(17 17 26 / 10%) 0px 8px 24px,
+    rgb(17 17 26 / 10%) 0px 16px 56px, rgb(17 17 26 / 10%) 0px 24px 80px;
+  background-color: white;
+  margin: 1rem;
+  border-radius: 12px;
+}
+.person-card-container {
+  padding: 10px;
+}
+.person-card-top {
+  display: flex;
+}
+.person-card-top-left {
+  margin-right: 10px;
+}
+.person-image {
+  border-radius: 12px;
+  width: 8rem;
+  height: 8rem;
+}
+.person-image img {
+  border-radius: 12px;
+  width: 100%;
+}
+.person-card-top-right {
+  margin-left: 10px;
+}
+.person-name {
+  font-size: 20px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  -webkit-box-orient: vertical;
+  width: 11rem;
+}
+.person-name span {
+}
+.person-age-branch {
+  padding: 8px 0px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #a9aeb6;
+  margin-top: -9px;
+}
+.age {
+}
+.branch {
+}
+.person-discription {
+  font-weight: 500;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  -webkit-box-orient: vertical;
+  width: 11rem;
+}
+.person-discription span {
+}
+.person-card-bottom {
+}
+.person-card-bottom a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+.person-contact {
+  border: 2px solid #ff7b7b;
+  background: #ff7b7b;
+  margin-top: 10px;
+  text-align: center;
+  padding: 6px;
+  border-radius: 12px;
+}
+.person-contact:hover {
+  border: 2px solid #ff7b7b;
+  color: #ff7b7b;
+  background: #ff4f5800;
+  margin-top: 10px;
+  text-align: center;
+  padding: 6px;
+  border-radius: 12px;
+}
+.person-contact span {
+}

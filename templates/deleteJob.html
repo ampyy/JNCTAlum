@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %} JNCTAlumni - Delete Job{% endblock %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<div class="container row">
+
+    <div class="p-5 feed_post col-md-8">
+
+        <h1 class="display-6 text-danger">Job</h1>
+                <div class="card-body">
+                    <h4 class="d-flex align-items-center mb-3"><i class="material-icons text-danger mr-2">Internships/Job</i></h4>
+
+
+                    <div class="alert alert-primary" role="alert">
+                        <b>{{ job.type }} at {{job.company_name}}</b> <a
+                            href="{% url 'updatejob' job.pk %}"><img
+                            src="{% static 'images/pencil.svg' %}"
+                            style="width:18px;"></a>
+                        <hr>
+                        Working as {{ job.position }}<br>
+
+                        From {{ job.started_from }} - {% if job.ended_on %} {{
+                        job.ended_on }} {% else %} present {% endif %}
+                        <br>
+
+                        Working on {{ job.role }}
+                    </div>
+                </div>
+        <form class="needs-validation responsive" enctype="multipart/form-data" method="post" novalidate>
+            {% csrf_token %}
+            <p class="text-danger"><strong>Sure? Want to delete?</strong></p>
+            <br>
+            <button class="btn btn-danger" type="submit">Delete</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
