@@ -105,3 +105,10 @@ class Skills(models.Model):
     skill_name = models.CharField(max_length=150, blank=False, null=False)
     learnt_from = models.CharField(max_length=150, blank=False, null=False)
     level = models.CharField(max_length=50, choices=LEVEL, null=False, blank=False)
+
+
+class Insights(models.Model):
+    title = models.CharField(max_length=150, blank=False, null=False)
+    image = models.ImageField()
+    caption = models.CharField(max_length=500, blank=False, null=False)
+    posted_time = models.DateTimeField(default=datetime.datetime.now())

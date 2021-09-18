@@ -229,3 +229,4 @@ class SkillsUpdateForm(forms.ModelForm):
     class Meta:
         model = Skills
         fields = ['skill_name', 'learnt_from', 'level', ]
+

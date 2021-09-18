@@ -24,5 +24,7 @@ urlpatterns = [
     path("myprofile/updateskill/<int:pk>", views.SkillsUpdateView.as_view(), name='updateskill'),
     path("myprofile/deleteskill/<int:pk>", views.SkillsDeleteView.as_view(), name='deleteskill'),
     path("notes", views.notes, name='notes'),
+    path("insights",views.InsightsListView.as_view(), name='insights'),
+    path("myprrofile/deleteinternshiporjob/<int:pk>", views.JobDeleteView.as_view(), name='deletejob'),
 
 ]

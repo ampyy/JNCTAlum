@@ -11,9 +11,11 @@
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
                             {% if user_info.profile_pic %}
-                            <img alt="Admin" class="" src="{{ user_info.profile_pic.url }}" style="width:120px;height:132px;border-radius:11px;">
+                            <img alt="Admin" class="" src="{{ user_info.profile_pic.url }}"
+                                 style="width:120px;height:132px;border-radius:11px;">
                             {% else %}
-                            <img alt="Admin" class="" src="{% static 'images/user.png' %}" style="width:120px;height:132px;border-radius:11px;">
+                            <img alt="Admin" class="" src="{% static 'images/user.png' %}"
+                                 style="width:120px;height:132px;border-radius:11px;">
                             {% endif %}
 
                             <div class="mt-3">
@@ -40,7 +42,6 @@
                                 {% endif %}
                                 {% if user.username == user_info.user %}
                                 <a class="btn btn-danger" href="{% url 'update_info' user_info.pk %}">Edit</a>
-                                <a class="btn btn-danger" href="{% url 'addthought' %}">Add a Thought</a>
                                 {% endif %}
 
                             </div>
@@ -132,7 +133,10 @@
 
             <div class="col-md-8">
                 <div class="card mb-3 p-4" style="overflow-y: scroll; height:400px;">
-                    <h4 class="text-danger">Trail of Thoughts</h4>
+                    <h4 class="text-danger">Trail of Thoughts <a class=""
+                                                                 href="{% url 'addthought' %}"><img
+                            src="{% static 'images/add.png' %}"
+                            style="width:18px;"></a></h4>
                     {% for thought in user_thoughts %}
                     <div class="alert alert-primary" role="alert">
                         {{ thought.thought }} <a href="{% url 'updatethought' thought.pk %}"><img
@@ -166,7 +170,8 @@
                         <hr>
                         <b>Position</b> : {{ job.position }}<br>
 
-                        <b>Duration</b> : From {{ job.started_from }} - {% if job.ended_on %} {{ job.ended_on }} {% else %} present {% endif %}
+                        <b>Duration</b> : From {{ job.started_from }} - {% if job.ended_on %} {{ job.ended_on }} {% else
+                        %} present {% endif %}
                         <br>
 
                         <b>Role</b> : Working on {{ job.role }}

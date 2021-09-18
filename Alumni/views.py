@@ -62,6 +62,11 @@ class UserInfoBasicsUpdateView(LoginRequiredMixin, generic.UpdateView):
     form_class = UserInfoBasicsUpdateForm
     success_url = '../myprofile'
 
+    def get_context_data(self, **kwargs):
+        context = super(UserInfoBasicsUpdateView, self).get_context_data(**kwargs)
+        context['user_info'] = UserInfoBasic.objects.get(user=self.request.user)
+        return context
+
 
 class UserLinkInfoView(LoginRequiredMixin, generic.CreateView):
     model = UserLinkInfo
@@ -81,6 +86,11 @@ class UserLinkInfoUpdateView(LoginRequiredMixin, generic.UpdateView):
     template_name = "user_link_update.html"
     form_class = UserLinkInfoUpdateForm
     success_url = '../myprofile'
+
+    def get_context_data(self, **kwargs):
+        context = super(UserLinkInfoUpdateView, self).get_context_data(**kwargs)
+        context['user_info'] = UserInfoBasic.objects.get(user=self.request.user)
+        return context
 
 
 class ProfileView(LoginRequiredMixin, generic.ListView):
@@ -152,11 +162,21 @@ class ThoughtByUserUpdateView(LoginRequiredMixin, generic.UpdateView):
     template_name = 'Updatethought.html'
     success_url = '../../myprofile'
 
+    def get_context_data(self, **kwargs):
+        context = super(ThoughtByUserUpdateView, self).get_context_data(**kwargs)
+        context['user_info'] = UserInfoBasic.objects.get(user=self.request.user)
+        return context
+
 
 class ThoughtByUserDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = ThoughtsByUser
     template_name = "deleteThought.html"
     success_url = '../../myprofile'
+
+    def get_context_data(self, **kwargs):
+        context = super(ThoughtByUserDeleteView, self).get_context_data(**kwargs)
+        context['user_info'] = UserInfoBasic.objects.get(user=self.request.user)
+        return context
 
 
 class JobCreateView(LoginRequiredMixin, generic.CreateView):
@@ -179,11 +199,21 @@ class JobUpdateView(LoginRequiredMixin, generic.UpdateView):
     template_name = 'updateJob.html'
     success_url = '../../myprofile'
 
+    def get_context_data(self, **kwargs):
+        context = super(JobUpdateView, self).get_context_data(**kwargs)
+        context['user_info'] = UserInfoBasic.objects.get(user=self.request.user)
+        return context
+
 
 class JobDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Job
     template_name = "deleteJob.html"
     success_url = '../../myprofile'
+
+    def get_context_data(self, **kwargs):
+        context = super(JobDeleteView, self).get_context_data(**kwargs)
+        context['user_info'] = UserInfoBasic.objects.get(user=self.request.user)
+        return context
 
 
 class SkillsCreateView(LoginRequiredMixin, generic.CreateView):
@@ -206,12 +236,32 @@ class SkillsUpdateView(LoginRequiredMixin, generic.UpdateView):
     template_name = 'updateSkill.html'
     success_url = '../../myprofile'
 
+    def get_context_data(self, **kwargs):
+        context = super(SkillsUpdateView, self).get_context_data(**kwargs)
+        context['user_info'] = UserInfoBasic.objects.get(user=self.request.user)
+        return context
+
 
 class SkillsDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Skills
     template_name = "deleteSkill.html"
     success_url = '../../myprofile'
 
+    def get_context_data(self, **kwargs):
+        context = super(SkillsDeleteView, self).get_context_data(**kwargs)
+        context['user_info'] = UserInfoBasic.objects.get(user=self.request.user)
+        return context
+
 
 def notes(request):
     return render(request, "notes.html")
+
+
+class InsightsListView(generic.ListView):
+    model = Insights
+    template_name = "insights.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(InsightsListView, self).get_context_data(**kwargs)
+        context['insights'] = Insights.objects.all()
+        return context

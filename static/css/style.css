@@ -82,6 +82,7 @@
   font-size: 25px;
   border: none;
   cursor: pointer;
+
 }
 
 .dropdown {
@@ -109,6 +110,12 @@
 
 .dropdown-content a:hover {
   background-color: rgba(255, 0, 0, 0.363);
+}
+
+.insight{
+    position: relative;
+    left: 25%;
+
 }
 
 .dropdown:hover .dropdown-content {

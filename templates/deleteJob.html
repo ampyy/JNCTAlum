@@ -3,6 +3,12 @@
 {% load crispy_forms_tags %}
 {% load static %}
 {% block content %}
+{% if user_info.pk != user.pk %}
+<center>
+    <h1 class="text-danger display-6">Oops entered someone else's territory</h1>
+    <a class="" href="{% url 'myprofile' %}">Edit Yours</a>
+</center>
+{% else %}
 <div class="container row">
 
     <div class="p-5 feed_post col-md-8">
@@ -35,5 +41,5 @@
         </form>
     </div>
 </div>
-
+{% endif %}
 {% endblock %}
